@@ -1,0 +1,27 @@
+name: Rust
+
+on:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Checkout Master
+      run: git checkout master
+    - name: Build
+      run: cargo build --release
+    - name: Run run
+      run: cargo test --verbose
+    - name: Checkout Non-Lazy
+      run: git checkout master
+    - name: Build
+      run: cargo build --release
+    - name: Run run
+      run: cargo test --verbose
