@@ -12,22 +12,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: non-lazy
     - name: Install Rust toolchain
       uses: actions-rs/toolchain@v1
       with:
         toolchain: nightly
         default: true
     - name: Checkout Master
-      run: git checkout master
+      uses: actions/checkout@v3
+      with:
+        ref: master
     - name: Build Master
       run: cargo build --release
     - name: Bench Master
       run: cargo bench
-    - name: Checkout Non-Lazy
-      run: git checkout non-lazy
+    - name: Checkout Master
+      uses: actions/checkout@v3
+      with:
+        ref: non-lazy
     - name: Build Non-Lazy
       run: cargo build --release
     - name: Bench Non-Lazy
