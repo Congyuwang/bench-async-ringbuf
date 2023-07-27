@@ -18,10 +18,10 @@ jobs:
     - name: Build
       run: cargo build --release
     - name: Run run
-      run: cargo test --verbose
+      run: cargo run --release
     - name: Checkout Non-Lazy
-      run: git checkout master
+      run: git checkout non-lazy
     - name: Build
       run: cargo build --release
     - name: Run run
-      run: cargo test --verbose
+      run: cargo run --release
