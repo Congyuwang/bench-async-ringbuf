@@ -25,11 +25,11 @@ jobs:
       run: cargo build --release
     - name: Bench Master
       run: cargo bench
-    - name: Checkout Non-Lazy
+    - name: Checkout Lazy
       uses: actions/checkout@v3
       with:
-        ref: non-lazy
-    - name: Build Non-Lazy
+        ref: lazy
+    - name: Build Lazy
       run: cargo build --release
-    - name: Bench Non-Lazy
+    - name: Bench Lazy
       run: cargo bench
