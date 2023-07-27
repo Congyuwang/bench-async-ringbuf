@@ -13,15 +13,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install Rust toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        default: true
     - name: Checkout Master
       run: git checkout master
-    - name: Build
+    - name: Build Master
       run: cargo build --release
-    - name: Run run
-      run: cargo run --release
+    - name: Bench Master
+      run: cargo bench
     - name: Checkout Non-Lazy
       run: git checkout non-lazy
-    - name: Build
+    - name: Build Non-Lazy
       run: cargo build --release
-    - name: Run run
-      run: cargo run --release
+    - name: Bench Non-Lazy
+      run: cargo bench
