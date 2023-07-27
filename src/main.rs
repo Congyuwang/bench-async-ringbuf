@@ -1,9 +1,9 @@
 use async_ringbuf::traits::Split;
 use futures::{AsyncReadExt, AsyncWriteExt};
 
-const BUF_SIZE: usize = 64 * 1024;
-const MSG_SIZE: usize = 1024;
-const MSG_COUNT: usize = 1024 * 1024 * 10;
+const BUF_SIZE: usize = 8 * 1024;
+const MSG_SIZE: usize = 64;
+const MSG_COUNT: usize = 1024 * 1024;
 
 #[tokio::main]
 async fn main() {
